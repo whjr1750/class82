@@ -5,12 +5,14 @@ canvas = document.getElementById("myCanvas");
 ctx = canvas.getContext("2d");
 
 color = "black";
-widthofline = "1";
+widthofline = 1;
 
 canvas.addEventListener("mousedown", mymousedown);
 function mymousedown(e) {
     color = document.getElementById("color").value;
     widthofline = document.getElementById("width").value;
+
+    mouseEvent = "mouseDown"; //added this
 }
 
 canvas.addEventListener("mousemove", my_mousemove);
@@ -22,7 +24,7 @@ function my_mousemove(e)
     if (mouseEvent == "mouseDown") {
     ctx.beginPath();
     ctx.strokeStyle = color;
-    ctx.lineWidth = width_of_line;
+    ctx.lineWidth = widthofline; //corrected the variable here
 
     console.log("Last position of x and y coordinates = ");
     console.log("x = " + last_position_of_x + "y = " + last_position_of_y);
